@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/82104/AndroidStudioProjects/Wego/app/src/main/res/layout/activity_content.xml" value="0.1875" />
+        <entry key="..\:/Users/82104/AndroidStudioProjects/Wego/app/src/main/res/layout/activity_list.xml" value="0.10277777777777777" />
         <entry key="..\:/Users/82104/AndroidStudioProjects/Wego/app/src/main/res/layout/activity_login.xml" value="0.333786231884058" />
         <entry key="..\:/Users/82104/AndroidStudioProjects/Wego/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/82104/AndroidStudioProjects/Wego/app/src/main/res/layout/activity_register.xml" value="0.333786231884058" />
+        <entry key="..\:/Users/82104/AndroidStudioProjects/Wego/app/src/main/res/layout/activity_write.xml" value="0.333786231884058" />
       </map>
     </option>
   </component>
