@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btn_register;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { // 액티비티 시작시 처음 실행되는 생명주기
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
@@ -40,24 +40,24 @@ public class RegisterActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            // EditText에 입력된 값을 가져온다.
-            String userId = et_id.getText().toString();
-            String userPassword = et_pass.getText().toString();
-            String userName = et_name.getText().toString();
-            int userAge = Integer.parseInt(et_age.getText().toString());
+                // Edit Text에 현재 입력되어있는 값을 get(가져온다)해온다.
+                String userId = et_id.getText().toString();
+                String userPassword = et_pass.getText().toString();
+                String userName = et_name.getText().toString();
+                int userAge = Integer.parseInt(et_age.getText().toString());
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(String response) { // 운반체계 패키징을 풀어주는(파싱)역할
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
-                            if(success){ //회원가입 성공한 경우
-                                Toast.makeText(getApplicationContext(),"회원 등록에 성공하였습니다0",Toast.LENGTH_SHORT).show();
+                            if(success){      // 회원등록 성공한 경우
+                                Toast.makeText(getApplicationContext(),"회원 등록되었습니다.",Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);
-                            } else{ // 회원가입 실패한 경우
-                                Toast.makeText(getApplicationContext(),"회원 등록에 실패하였습니다0",Toast.LENGTH_SHORT).show();
+                            } else{          // 회원등록 실패한 경우
+                                Toast.makeText(getApplicationContext(),"회원 등록에 실패하였습니다.",Toast.LENGTH_SHORT).show();
                                 return;
                             }
                         } catch (JSONException e) {
@@ -65,16 +65,15 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
+
                 // 서버로 volley를 이용하여 요청한다.
                 RegisterRequest registerRequest = new RegisterRequest(userId, userPassword, userName, userAge, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
 
-
-
             }
-        });
 
+        });
 
 
     }

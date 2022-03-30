@@ -19,10 +19,12 @@ public class MainActivity extends AppCompatActivity {
         tv_pass = findViewById(R.id.tv_pass);
 
         Intent intent = getIntent();
-        String userId = intent.getStringExtra("userId");
+        String userID = intent.getStringExtra("userID");
         String userPass = intent.getStringExtra("userPass");
 
-        tv_id.setText(userId);
+        tv_id.setText(userID);
         tv_pass.setText(userPass);
+
     }
+
 }

@@ -11,22 +11,19 @@ import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
 
-
     // 서버 Url 설정 (PHP 파일 연동)
-    final  static private String URL = "quddnr5571.dothome.co.kr/Register.php";
+    final  static private String URL = "http://quddnr5571.dothome.co.kr/Login.php";
     private Map<String, String> map;
 
 
+    public RegisterRequest(String userID, String userPassword, String userName, int userAge, Response.Listener<String> listener ){
+        super(Method.POST, URL, listener, null);
 
-    public RegisterRequest(String userId, String userPassword, String userName, int userAge, Response.Listener<String> listener ){
-    super(Method.POST, URL, listener, null);
-
-    map = new HashMap<>();
-    map.put("userId",userId);
-    map.put("userPassword",userPassword);
-    map.put("userName",userName);
-    map.put("userAge",userAge + "");
-
+        map = new HashMap<>();
+        map.put("userID",userID);
+        map.put("userPassword",userPassword);
+        map.put("userName",userName);
+        map.put("userAge",userAge + "");
     }
 
 
@@ -35,4 +32,5 @@ public class RegisterRequest extends StringRequest {
     protected Map<String, String> getParams() throws AuthFailureError {
         return map;
     }
+
 }
