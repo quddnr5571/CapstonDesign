@@ -1,7 +1,5 @@
 package com.example.yschang.wego;
 
-import androidx.annotation.Nullable;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
@@ -17,16 +15,14 @@ public class LoginRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public LoginRequest(String userId, String userPassword,  Response.Listener<String> listener){
+    public LoginRequest(String userID, String userPassword,  Response.Listener<String> listener){
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("userId",userId);
+        map.put("userID",userID);
         map.put("userPassword",userPassword);
     }
 
-
-    @Nullable
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return map;

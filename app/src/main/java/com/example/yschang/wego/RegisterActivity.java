@@ -41,8 +41,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Edit Text에 현재 입력되어있는 값을 get(가져온다)해온다.
-                String userId = et_id.getText().toString();
-                String userPassword = et_pass.getText().toString();
+                String userID = et_id.getText().toString();
+                String userPass = et_pass.getText().toString();
                 String userName = et_name.getText().toString();
                 int userAge = Integer.parseInt(et_age.getText().toString());
 
@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                 };
 
                 // 서버로 volley를 이용하여 요청한다.
-                RegisterRequest registerRequest = new RegisterRequest(userId, userPassword, userName, userAge, responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(userID, userPass, userName, userAge, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
 
